@@ -6,7 +6,7 @@ import { createSessionSchema } from "./schema/session.schema";
 import { createUserSchema } from "./schema/user.schema";
 
 function routes(app: Express) {
-  app.get("/test_api", (req: Request, res: Response) => {
+  app.get("/api/test", (req: Request, res: Response) => {
     res.sendStatus(200);
   });
 
