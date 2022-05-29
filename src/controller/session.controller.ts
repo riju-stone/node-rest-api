@@ -23,12 +23,14 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   //create access token
   const accessToken = signJwt(
     { ...user, session: session._id },
-    { expiresIn: config.get("assessTokenTTL") }
+    "accessTokenPrivateKey",
+    { expiresIn: config.get("accessTokenTTL") }
   );
 
   //create a refresh token
   const refreshToken = signJwt(
     { ...user, session: session._id },
+    "refreshTokenPrivateKey",
     { expiresIn: config.get("refreshTokenTTL") }
   );
 
